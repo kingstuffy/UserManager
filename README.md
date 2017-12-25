@@ -10,9 +10,9 @@ This application was developed using [ExpressJS](http://expressjs.com/). MongoDB
 
 ## Installation (Docker)
 ### Docker Installation
-* Please follow the instructions at:[Docker Installation](https://docs.docker.com/engine/installation/) to install docker.
-* If your system doesn't meet Docker's requirement, please download docker toolbox here:[Docker Toolbox](https://docs.docker.com/toolbox/).
-* Install docker compose (for local development) here:[Docker Compose](https://docs.docker.com/compose/install/).
+* Please follow the instructions at: [Docker Installation](https://docs.docker.com/engine/installation/) to install docker.
+* If your system doesn't meet Docker's requirement, please download docker toolbox here: [Docker Toolbox](https://docs.docker.com/toolbox/).
+* Install docker compose (for local development) here: [Docker Compose](https://docs.docker.com/compose/install/).
 * Ensure that docker is running on your machine.
 * You can use docker compose or docker stand-alone to run the application 
 
