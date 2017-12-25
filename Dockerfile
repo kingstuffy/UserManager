@@ -3,7 +3,7 @@ MAINTAINER Olawale Malomo <warlay234@gmail.com>
 
 WORKDIR /www
 
-ADD application/package.json /www/
+ADD application/package.json application/package-lock.json /www/
 RUN npm install \
 	&& npm cache clean;
 
