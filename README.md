@@ -8,11 +8,73 @@ The API is used to manage users in a MongoDB database.
 ### Development
 This application was developed using [ExpressJS](http://expressjs.com/). MongoDB was used for persisting data with [Mongoose](https://mongoosejs.com/) as [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping).
 
-### Installation
+## Installation (Docker)
+### Docker Installation
+* Please follow the instructions at:[Docker Installation](https://docs.docker.com/engine/installation/) to install docker.
+* If your system doesn't meet Docker's requirement, please download docker toolbox here:[Docker Toolbox](https://docs.docker.com/toolbox/).
+* Install docker compose (for local development) here:[Docker Compose](https://docs.docker.com/compose/install/).
+* Ensure that docker is running on your machine.
+* You can use docker compose or docker stand-alone to run the application 
+
+### Using Docker Compose (Recommended for local development)
+* Create a `.env` file in your root directory as described in `.env.sample` file. Variables such as DB_URL (which must be a mongoDB URL) and PORT are defined in the .env file and it is essential you create this file before running the application.
+* Set DB_URL in `application/.env` to `mongodb://mongo/test-db-app` to use the mongodb container
+```shell
+docker-compose up -d
+```
+* see logs
+```shell
+docker-compose logs -f
+```
+* run tests
+```shell
+docker-compose run --rm app npm test
+```
+* tear down
+```shell
+docker-compose down
+```
+
+### Using Docker stand-alone (for local development)
+* Create a `.env` file in your root directory as described in `.env.sample` file. Variables such as DB_URL (which must be a mongoDB URL) and PORT are defined in the .env file and it is essential you create this file before running the application.
+* build application
+```shell
+docker build -t usermanager_app .
+```
+* start mongo db container
+```shell
+docker run --name mongo -d mongo
+```
+
+* start application
+```shell
+docker run -p 3000:3000  -v "[path/to/folder]/application:/www" --link mongo:mongo -d usermanager_app
+```
+* PS: Replace `path/to/folder` with the absolute path to project directory
+* list running containers
+```shell
+docker ps
+```
+* see logs
+```shell
+docker logs [container-id]
+```
+* run tests
+```shell
+docker run -p 3000:3000  -v "[path/to/folder]/application:/www" --link mongo:mongo -t usermanager_app npm test
+```
+* stop container
+```shell
+docker stop [container-id]
+```
+
+## Installation (Without Docker)
+These instructions are for use without docker
 * Start up your terminal (or Command Prompt on Windows OS).
 * Ensure that you've `node` installed on your PC.
 * Clone the repository by entering the command `git clone https://github.com/andela-bolajide/UserManager` in the terminal.
 * Navigate to the project folder using `cd UserManager` on your terminal (or command prompt)
+* Navigate to the application folder using `cd application` on your terminal (or command prompt)
 * After cloning, install the application's dependencies with the command `npm install`.
 * Create a `.env` file in your root directory as described in `.env.sample` file. Variables such as DB_URL (which must be a mongoDB URL) and PORT are defined in the .env file and it is essential you create this file before running the application.
 ```
