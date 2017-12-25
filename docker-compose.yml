@@ -2,15 +2,15 @@ version: "3"
 services:
   app:
     restart: always
-    build: .
+    build: . # specifies path to dockerfile
     ports:
-      - "3000:3000"
+      - "3000:3000" # specifies ports (HOST:CONTAINER)
     volumes:
-      - "./application:/www"
-      - "/www/node_modules"
+      - "./application:/www" # Mount host paths
+      - "/www/node_modules" # Use container's node_modules folder
     links:
-      - mongo
+      - mongo # links application to mongo's container
   mongo:
     image: mongo
     ports:
-      - "27018:27017"
+      - "27018:27017" # specifies ports (HOST:CONTAINER)
