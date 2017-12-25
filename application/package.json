@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jasmine tests/"
+    "test": "jasmine"
   },
   "keywords": [
     "express",
@@ -24,7 +24,9 @@
   "directories": {
     "test": "tests"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andela-bolajide/UserManager.git"
